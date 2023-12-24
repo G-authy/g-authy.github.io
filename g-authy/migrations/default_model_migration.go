@@ -36,3 +36,20 @@ type User struct {
 	TenantID uuid.UUID `gorm:"type:uuid;not null" json:"-"`
 	Tenant   Tenant    `gorm:"foreignkey:TenantID" json:"-"`
 }
+
+// Vault represents the vault information.
+type Vault struct {
+	DefaultModel
+	TenantID uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Tenant   Tenant    `gorm:"foreignkey:TenantID" json:"-"`
+	Secrets  []Secret  `gorm:"foreignkey:VaultID" json:"-"`
+}
+
+// Secret represents the secret information.
+type Secret struct {
+	DefaultModel
+	VaultID uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Vault   Vault     `gorm:"foreignkey:VaultID" json:"-"`
+	Type    string    `gorm:"not null" json:"type"`
+	Value   string    `gorm:"not null" json:"value"`
+}
