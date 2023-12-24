@@ -1,1 +1,137 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>g-authy.github.io - Secure Your Secrets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #007BFF;
+        }
+
+        .donate {
+            margin-top: 20px;
+        }
+
+        .donate p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .crypto-address {
+            font-family: monospace;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f5f5f5;
+            margin-bottom: 10px;
+        }
+
+        .issues-form {
+            margin-top: 20px;
+            max-width: 400px;
+        }
+
+        .issues-form label,
+        .issues-form textarea,
+        .issues-form input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .issues-form textarea {
+            height: 150px;
+        }
+
+        .submit-btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>G-authy - Secure Your Secrets</h1>
+    </header>
+
+    <section>
+        <h2>Features</h2>
+        <ul>
+            <li>Multi-tenant support</li>
+            <li>Username/password and SSO login</li>
+            <li>RBAC on secrets and vaults</li>
+            <li>Support for various secret types</li>
+            <li>RESTful API with Swagger documentation</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Releases</h2>
+        <ul>
+            <li><a href="https://github.com/G-authy/g-authy.github.io/releases/tag/v1.0.0">Version 1.0.0</a></li>
+            <!-- Add more release links as needed -->
+        </ul>
+    </section>
+
+    <section>
+        <h2>Wiki</h2>
+        <p>Explore our <a href="https://github.com/G-authy/g-authy.github.io/wiki">wiki</a> for documentation and guides.</p>
+    </section>
+
+    <section class="issues-form">
+        <h2>Submit an Issue</h2>
+        <form action="https://github.com/G-authy/g-authy.github.io/issues/new" method="get">
+            <label for="issue-title">Issue Title:</label>
+            <input type="text" id="issue-title" name="title" required>
+
+            <label for="issue-body">Issue Description:</label>
+            <textarea id="issue-body" name="body" required></textarea>
+
+            <input type="submit" class="submit-btn" value="Submit Issue">
+        </form>
+    </section>
+
+    <section class="donate">
+       <!-- <h2>Donate via Cryptocurrency</h2>
+        <p>Your support helps us maintain and improve g-authy.github.io. We appreciate your contribution!</p>
+        <div class="crypto-address">
+            <p>Bitcoin (BTC) Address:</p>
+            <p>1ABCdefGHIJKLMNopqrsTUVWxyz</p>
+        </div> -->
+    </section>
+</body>
+</html>
