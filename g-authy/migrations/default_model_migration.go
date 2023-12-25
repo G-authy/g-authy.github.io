@@ -41,47 +41,46 @@ type User struct {
 	IsActive       bool
 	ActivationLink string
 	IsSSOActive    bool
+	IsAdmin        bool
 }
 
 // Vault represents the vault information.
 type Vault struct {
 	DefaultModel
-	TenantID   uuid.UUID `gorm:"type:uuid;not null" json:"-"`
-	Tenant     Tenant    `gorm:"foreignkey:TenantID" json:"-"`
-	Secrets    []Secret  `gorm:"foreignkey:VaultID" json:"-"`
-	VaultName  string    `gorm:"not null" json:"vault_name"`
-	VaultOwner uuid.UUID `gorm:"foreignkey:UserID;not null;type:uuid"`
+	TenantID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Tenant       Tenant    `gorm:"foreignkey:TenantID" json:"-"`
+	Secrets      []Secret  `gorm:"foreignkey:VaultID" json:"-"`
+	VaultOwnerID uuid.UUID `gorm:"foreignkey:UserID;not null;type:uuid"`
 }
 
 // Secret represents the secret information.
 type Secret struct {
 	DefaultModel
-	VaultID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
-	Vault       Vault     `gorm:"foreignkey:VaultID" json:"-"`
-	Type        string    `gorm:"not null" json:"type"`
-	Value       string    `gorm:"not null" json:"value"`
-	SecretName  string    `gorm:"not null" json:"secret_name"`
-	SecretOwner uuid.UUID `gorm:"foreignkey:UserID;not null;type:uuid"`
+	VaultID       uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Vault         Vault     `gorm:"foreignkey:VaultID" json:"-"`
+	Type          string    `gorm:"not null" json:"type"`
+	Value         string    `gorm:"not null" json:"value"`
+	SecretOwnerID uuid.UUID `gorm:"foreignkey:UserID;not null;type:uuid"`
 }
 
 // Group represents the Groups table
 type Group struct {
-	GroupID   uuid.UUID `gorm:"type:uuid;primaryKey"`
-	GroupName string
+	DefaultModel
+	Users []User `gorm:"foreignkey:TenantID" json:"-"`
 }
 
 // Resource represents the Resources table
-type Resource struct {
-	ResourceID         uuid.UUID `gorm:"type:uuid;primaryKey"`
-	ResourceName       string
-	ResourceCreationID uuid.UUID `gorm:"type:uuid"`
-	ModificationDate   time.Time
-}
+// type Resource struct {
+// 	ResourceID         uuid.UUID `gorm:"type:uuid;primaryKey"`
+// 	ResourceName       string
+// 	ResourceCreationID uuid.UUID `gorm:"type:uuid"`
+// 	ModificationDate   time.Time
+// }
 
 // Role represents the Roles table
 type Role struct {
-	RoleID   uuid.UUID `gorm:"type:uuid;primaryKey"`
-	RoleName string
+	RoleID   int    `gorm:"type:int;autoIncrement;primaryKey"`
+	RoleName string `gorm:"not null"`
 }
 
 // Permission represents the Permissions table
@@ -91,9 +90,11 @@ type Permission struct {
 	User       User      `gorm:"foreignkey:UserID" json:"-"`
 	GroupID    uuid.UUID `gorm:"type:uuid;not null" json:"-"`
 	Group      Group     `gorm:"foreignkey:GroupID" json:"-"`
-	RoleID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	RoleID     int       `gorm:"type:int;not null" json:"-"`
 	Role       Role      `gorm:"foreignkey:RoleID" json:"-"`
-	VaultID    uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	VaultID    uuid.UUID `gorm:"type:uuid;" json:"-"`
 	Vault      Vault     `gorm:"foreignkey:VaultID" json:"-"`
+	SecretID   uuid.UUID `gorm:"type:uuid;" json:"-"`
+	Secret     Secret    `gorm:"foreignkey:SecretID" json:"-"`
 	Permission string    `gorm:"not null" json:"permission"`
 }
