@@ -1,0 +1,503 @@
+swagger: '2.0'
+info:
+  title: User API
+  version: '1.0'
+paths:
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: A list of users
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+    post:
+      summary: Create a new user
+      parameters:
+        - in: body
+          name: user
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '201':
+          description: User created
+  /users/{id}:
+    get:
+      summary: Get a user by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A single user
+          schema:
+            $ref: '#/definitions/User'
+    put:
+      summary: Update a user by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: user
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: User updated
+    delete:
+      summary: Delete a user by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '204':
+          description: User deleted
+  /tenants:
+    get:
+      summary: Get all tenants
+      responses:
+        '200':
+          description: A list of tenants
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Tenant'
+    post:
+      summary: Create a new tenant
+      parameters:
+        - in: body
+          name: tenant
+          schema:
+            $ref: '#/definitions/Tenant'
+      responses:
+        '201':
+          description: Tenant created
+  /tenants/{id}:
+    get:
+      summary: Get a tenant by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A single tenant
+          schema:
+            $ref: '#/definitions/Tenant'
+    put:
+      summary: Update a tenant by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: tenant
+          schema:
+            $ref: '#/definitions/Tenant'
+      responses:
+        '200':
+          description: Tenant updated
+    delete:
+      summary: Delete a tenant by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Tenant deleted
+  /groups:
+    get:
+      summary: Get all groups
+      responses:
+        '200':
+          description: A list of groups
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Group'
+    post:
+      summary: Create a new group
+      parameters:
+        - in: body
+          name: group
+          schema:
+            $ref: '#/definitions/Group'
+      responses:
+        '201':
+          description: Group created
+  /groups/{id}:
+    get:
+      summary: Get a group by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A single group
+          schema:
+            $ref: '#/definitions/Group'
+    put:
+      summary: Update a group by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: group
+          schema:
+            $ref: '#/definitions/Group'
+      responses:
+        '200':
+          description: Group updated
+    delete:
+      summary: Delete a group by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Group deleted
+  /roles:
+    get:
+      summary: Get all roles
+      responses:
+        '200':
+          description: A list of roles
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Role'
+    post:
+      summary: Create a new role
+      parameters:
+        - in: body
+          name: role
+          schema:
+            $ref: '#/definitions/Role'
+      responses:
+        '201':
+          description: Role created
+  /roles/{id}:
+    get:
+      summary: Get a role by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: A single role
+          schema:
+            $ref: '#/definitions/Role'
+    put:
+      summary: Update a role by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+        - in: body
+          name: role
+          schema:
+            $ref: '#/definitions/Role'
+      responses:
+        '200':
+          description: Role updated
+    delete:
+      summary: Delete a role by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: Role deleted
+  /permissions:
+    get:
+      summary: Get all permissions
+      responses:
+        '200':
+          description: A list of permissions
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Permission'
+    post:
+      summary: Create a new permission
+      parameters:
+        - in: body
+          name: permission
+          schema:
+            $ref: '#/definitions/Permission'
+      responses:
+        '201':
+          description: Permission created
+  /permissions/{id}:
+    get:
+      summary: Get a permission by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A single permission
+          schema:
+            $ref: '#/definitions/Permission'
+    put:
+      summary: Update a permission by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: permission
+          schema:
+            $ref: '#/definitions/Permission'
+      responses:
+        '200':
+          description: Permission updated
+    delete:
+      summary: Delete a permission by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Permission deleted
+  /secrets:
+    get:
+      summary: Get all secrets
+      responses:
+        '200':
+          description: A list of secrets
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Secret'
+    post:
+      summary: Create a new secret
+      parameters:
+        - in: body
+          name: secret
+          schema:
+            $ref: '#/definitions/Secret'
+      responses:
+        '201':
+          description: Secret created
+  /secrets/{id}:
+    get:
+      summary: Get a secret by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A single secret
+          schema:
+            $ref: '#/definitions/Secret'
+    put:
+      summary: Update a secret by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: secret
+          schema:
+            $ref: '#/definitions/Secret'
+      responses:
+        '200':
+          description: Secret updated
+    delete:
+      summary: Delete a secret by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Secret deleted
+  /vaults:
+    get:
+      summary: Get all vaults
+      responses:
+        '200':
+          description: A list of vaults
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Vault'
+    post:
+      summary: Create a new vault
+      parameters:
+        - in: body
+          name: vault
+          schema:
+            $ref: '#/definitions/Vault'
+      responses:
+        '201':
+          description: Vault created
+  /vaults/{id}:
+    get:
+      summary: Get a vault by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A single vault
+          schema:
+            $ref: '#/definitions/Vault'
+    put:
+      summary: Update a vault by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: vault
+          schema:
+            $ref: '#/definitions/Vault'
+      responses:
+        '200':
+          description: Vault updated
+    delete:
+      summary: Delete a vault by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Vault deleted
+ 
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      tenantID:
+        type: string
+      isActive:
+        type: boolean
+      isAdmin:
+        type: boolean
+      activationLink:
+        type: string
+      isSSOActive:
+        type: boolean
+  Tenant:
+    type: object
+    properties:
+      id:
+        type: string
+      region:
+        type: string
+      users:
+        type: array
+        items:
+          $ref: '#/definitions/User'
+      groups:
+        type: array
+        items:
+          $ref: '#/definitions/Group'
+      ownerId:
+        type: string
+  Group:
+    type: object
+    properties:
+      id:
+        type: string
+      users:
+        type: array
+        items:
+          $ref: '#/definitions/User'
+  Role:
+    type: object
+    properties:
+      RoleID:
+        type: integer
+        format: int32
+      RoleName:
+        type: string
+  Permission:
+    type: object
+    properties:
+      UserID:
+        type: string
+      GroupID:
+        type: string
+      RoleID:
+        type: string
+      VaultID:
+        type: string
+      Permission:
+        type: string
+  Secret:
+    type: object
+    properties:
+      VaultID:
+        type: string
+        format: uuid
+      Type:
+        type: string
+      Value:
+        type: string
+      SecretOwnerID:
+        type: string
+        format: uuid
+  Vault:
+    type: object
+    properties:
+      TenantID:
+        type: string
+        format: uuid
+      Secrets:
+        type: array
+        items:
+          $ref: '#/definitions/Secret'
+      VaultOwnerID:
+        type: string
+        format: uuid
