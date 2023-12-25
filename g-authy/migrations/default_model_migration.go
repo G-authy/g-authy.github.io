@@ -70,12 +70,12 @@ type Group struct {
 }
 
 // Resource represents the Resources table
-type Resource struct {
-	ResourceID         uuid.UUID `gorm:"type:uuid;primaryKey"`
-	ResourceName       string
-	ResourceCreationID uuid.UUID `gorm:"type:uuid"`
-	ModificationDate   time.Time
-}
+// type Resource struct {
+// 	ResourceID         uuid.UUID `gorm:"type:uuid;primaryKey"`
+// 	ResourceName       string
+// 	ResourceCreationID uuid.UUID `gorm:"type:uuid"`
+// 	ModificationDate   time.Time
+// }
 
 // Role represents the Roles table
 type Role struct {
@@ -90,9 +90,11 @@ type Permission struct {
 	User       User      `gorm:"foreignkey:UserID" json:"-"`
 	GroupID    uuid.UUID `gorm:"type:uuid;not null" json:"-"`
 	Group      Group     `gorm:"foreignkey:GroupID" json:"-"`
-	RoleID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	RoleID     int       `gorm:"type:int;not null" json:"-"`
 	Role       Role      `gorm:"foreignkey:RoleID" json:"-"`
-	VaultID    uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	VaultID    uuid.UUID `gorm:"type:uuid;" json:"-"`
 	Vault      Vault     `gorm:"foreignkey:VaultID" json:"-"`
+	SecretID   uuid.UUID `gorm:"type:uuid;" json:"-"`
+	Secret     Secret    `gorm:"foreignkey:SecretID" json:"-"`
 	Permission string    `gorm:"not null" json:"permission"`
 }
