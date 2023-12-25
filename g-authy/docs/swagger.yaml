@@ -70,6 +70,57 @@ paths:
       responses:
         '204':
           description: User deleted
+  /users/{id}/vaults/{vault_id}:
+    get:
+      tags:
+        - Users
+        - Vaults
+      summary: Get a specific vault within a user
+      responses:
+        '200':
+          description: A vault object
+    put:
+      tags:
+        - Users
+        - Vaults
+      summary: Update a specific vault within a user
+      responses:
+        '200':
+          description: Vault updated
+    delete:
+      tags:
+        - Users
+        - Vaults
+      summary: Delete a specific vault within a user
+      responses:
+        '204':
+          description: Vault deleted
+  /users/{id}/secrets/{secret_id}:
+    get:
+      tags:
+        - Users
+        - Secrets
+      summary: Get a specific secret within a user
+      responses:
+        '200':
+          description: A secret object
+    put:
+      tags:
+        - Users
+        - Secrets
+      summary: Update a specific secret within a user
+      responses:
+        '200':
+          description: Secret updated
+    delete:
+      tags:
+        - Users
+        - Secrets
+      summary: Delete a specific secret within a user
+      responses:
+        '204':
+          description: Secret deleted
+ 
   /tenants:
     get:
       tags:
@@ -137,6 +188,107 @@ paths:
       responses:
         '204':
           description: Tenant deleted
+  /tenants/{id}/users/{user_id}:
+    get:
+      tags:
+        - Tenants
+        - Users
+      summary: Get a specific user within a tenant
+      responses:
+        '200':
+          description: A user object
+    put:
+      tags:
+        - Tenants
+        - Users
+      summary: Update a specific user within a tenant
+      responses:
+        '200':
+          description: User updated
+    delete:
+      tags:
+        - Tenants
+        - Users
+      summary: Delete a specific user within a tenant
+      responses:
+        '204':
+          description: User deleted
+  /tenants/{id}/groups/{group_id}:
+    get:
+      tags:
+        - Tenants
+        - Groups
+      summary: Get a specific group within a tenant
+      responses:
+        '200':
+          description: A group object
+    put:
+      tags:
+        - Tenants
+        - Groups
+      summary: Update a specific group within a tenant
+      responses:
+        '200':
+          description: Group updated
+    delete:
+      tags:
+        - Tenants
+        - Groups
+      summary: Delete a specific group within a tenant
+      responses:
+        '204':
+          description: Group deleted
+  /tenants/{id}/vaults/{vault_id}:
+    get:
+      tags:
+        - Tenants
+        - Vaults
+      summary: Get a specific vault within a tenant
+      responses:
+        '200':
+          description: A vault object
+    put:
+      tags:
+        - Tenants
+        - Vaults
+      summary: Update a specific vault within a tenant
+      responses:
+        '200':
+          description: Vault updated
+    delete:
+      tags:
+        - Tenants
+        - Vaults
+      summary: Delete a specific vault within a tenant
+      responses:
+        '204':
+          description: Vault deleted
+  /tenants/{id}/secrets/{secret_id}:
+    get:
+      tags:
+        - Tenants
+        - Secrets
+      summary: Get a specific secret within a tenant
+      responses:
+        '200':
+          description: A secret object
+    put:
+      tags:
+        - Tenants
+        - Secrets
+      summary: Update a specific secret within a tenant
+      responses:
+        '200':
+          description: Secret updated
+    delete:
+      tags:
+        - Tenants
+        - Secrets
+      summary: Delete a specific secret within a tenant
+      responses:
+        '204':
+          description: Secret deleted
+ 
   /groups:
     get:
       tags:
@@ -204,6 +356,7 @@ paths:
       responses:
         '204':
           description: Group deleted
+  
   /roles:
     get:
       tags:
@@ -244,36 +397,7 @@ paths:
           description: A single role
           schema:
             $ref: '#/definitions/Role'
-    put:
-      tags:
-        - roles
-      summary: Update a role by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          type: integer
-          format: int32
-        - in: body
-          name: role
-          schema:
-            $ref: '#/definitions/Role'
-      responses:
-        '200':
-          description: Role updated
-    delete:
-      tags:
-        - roles
-      summary: Delete a role by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          type: integer
-          format: int32
-      responses:
-        '204':
-          description: Role deleted
+  
   /permissions:
     get:
       tags:
@@ -341,6 +465,7 @@ paths:
       responses:
         '204':
           description: Permission deleted
+  
   /secrets:
     get:
       tags:
@@ -475,7 +600,6 @@ paths:
       responses:
         '204':
           description: Vault deleted
- 
 definitions:
   User:
     type: object
