@@ -45,18 +45,22 @@ type User struct {
 // Vault represents the vault information.
 type Vault struct {
 	DefaultModel
-	TenantID uuid.UUID `gorm:"type:uuid;not null" json:"-"`
-	Tenant   Tenant    `gorm:"foreignkey:TenantID" json:"-"`
-	Secrets  []Secret  `gorm:"foreignkey:VaultID" json:"-"`
+	TenantID   uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Tenant     Tenant    `gorm:"foreignkey:TenantID" json:"-"`
+	Secrets    []Secret  `gorm:"foreignkey:VaultID" json:"-"`
+	VaultName  string    `gorm:"not null" json:"vault_name"`
+	VaultOwner uuid.UUID `gorm:"foreignkey:UserID;not null;type:uuid"`
 }
 
 // Secret represents the secret information.
 type Secret struct {
 	DefaultModel
-	VaultID uuid.UUID `gorm:"type:uuid;not null" json:"-"`
-	Vault   Vault     `gorm:"foreignkey:VaultID" json:"-"`
-	Type    string    `gorm:"not null" json:"type"`
-	Value   string    `gorm:"not null" json:"value"`
+	VaultID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Vault       Vault     `gorm:"foreignkey:VaultID" json:"-"`
+	Type        string    `gorm:"not null" json:"type"`
+	Value       string    `gorm:"not null" json:"value"`
+	SecretName  string    `gorm:"not null" json:"secret_name"`
+	SecretOwner uuid.UUID `gorm:"foreignkey:UserID;not null;type:uuid"`
 }
 
 // Group represents the Groups table
@@ -81,9 +85,14 @@ type Role struct {
 
 // Permission represents the Permissions table
 type Permission struct {
-	PermissionID uuid.UUID `gorm:"type:uuid;primaryKey"`
-	UserID       uuid.UUID `gorm:"type:uuid"`
-	GroupID      uuid.UUID `gorm:"type:uuid"`
-	RoleID       uuid.UUID `gorm:"type:uuid"`
-	ResourceID   uuid.UUID `gorm:"type:uuid"`
+	DefaultModel
+	UserID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	User       User      `gorm:"foreignkey:UserID" json:"-"`
+	GroupID    uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Group      Group     `gorm:"foreignkey:GroupID" json:"-"`
+	RoleID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Role       Role      `gorm:"foreignkey:RoleID" json:"-"`
+	VaultID    uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Vault      Vault     `gorm:"foreignkey:VaultID" json:"-"`
+	Permission string    `gorm:"not null" json:"permission"`
 }
