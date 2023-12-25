@@ -66,7 +66,8 @@ type Secret struct {
 
 // Group represents the Groups table
 type Group struct {
-	DefaultModel
+	GroupID   uuid.UUID `gorm:"type:uuid;primaryKey"`
+	GroupName string
 }
 
 // Resource represents the Resources table
@@ -79,7 +80,8 @@ type Resource struct {
 
 // Role represents the Roles table
 type Role struct {
-	DefaultModel
+	RoleID   uuid.UUID `gorm:"type:uuid;primaryKey"`
+	RoleName string
 }
 
 // Permission represents the Permissions table
