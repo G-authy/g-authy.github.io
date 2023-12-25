@@ -5,8 +5,6 @@ info:
 paths:
   /users:
     get:
-      tags:
-        - users
       summary: Get all users
       responses:
         '200':
@@ -16,8 +14,6 @@ paths:
             items:
               $ref: '#/definitions/User'
     post:
-      tags:
-        - users
       summary: Create a new user
       parameters:
         - in: body
@@ -29,8 +25,6 @@ paths:
           description: User created
   /users/{id}:
     get:
-      tags:
-        - users
       summary: Get a user by ID
       parameters:
         - in: path
@@ -43,8 +37,6 @@ paths:
           schema:
             $ref: '#/definitions/User'
     put:
-      tags:
-        - users
       summary: Update a user by ID
       parameters:
         - in: path
@@ -59,8 +51,6 @@ paths:
         '200':
           description: User updated
     delete:
-      tags:
-        - users
       summary: Delete a user by ID
       parameters:
         - in: path
@@ -72,8 +62,6 @@ paths:
           description: User deleted
   /tenants:
     get:
-      tags:
-        - tenants
       summary: Get all tenants
       responses:
         '200':
@@ -83,8 +71,6 @@ paths:
             items:
               $ref: '#/definitions/Tenant'
     post:
-      tags:
-        - tenants
       summary: Create a new tenant
       parameters:
         - in: body
@@ -96,8 +82,6 @@ paths:
           description: Tenant created
   /tenants/{id}:
     get:
-      tags:
-        - tenants
       summary: Get a tenant by ID
       parameters:
         - in: path
@@ -110,8 +94,6 @@ paths:
           schema:
             $ref: '#/definitions/Tenant'
     put:
-      tags:
-        - tenants
       summary: Update a tenant by ID
       parameters:
         - in: path
@@ -126,8 +108,6 @@ paths:
         '200':
           description: Tenant updated
     delete:
-      tags:
-        - tenants
       summary: Delete a tenant by ID
       parameters:
         - in: path
@@ -139,8 +119,6 @@ paths:
           description: Tenant deleted
   /groups:
     get:
-      tags:
-        - groups
       summary: Get all groups
       responses:
         '200':
@@ -150,8 +128,6 @@ paths:
             items:
               $ref: '#/definitions/Group'
     post:
-      tags:
-        - groups
       summary: Create a new group
       parameters:
         - in: body
@@ -163,8 +139,6 @@ paths:
           description: Group created
   /groups/{id}:
     get:
-      tags:
-        - groups
       summary: Get a group by ID
       parameters:
         - in: path
@@ -177,8 +151,6 @@ paths:
           schema:
             $ref: '#/definitions/Group'
     put:
-      tags:
-        - groups
       summary: Update a group by ID
       parameters:
         - in: path
@@ -193,8 +165,6 @@ paths:
         '200':
           description: Group updated
     delete:
-      tags:
-        - groups
       summary: Delete a group by ID
       parameters:
         - in: path
@@ -206,8 +176,6 @@ paths:
           description: Group deleted
   /roles:
     get:
-      tags:
-        - roles
       summary: Get all roles
       responses:
         '200':
@@ -217,8 +185,6 @@ paths:
             items:
               $ref: '#/definitions/Role'
     post:
-      tags:
-        - roles
       summary: Create a new role
       parameters:
         - in: body
@@ -230,8 +196,6 @@ paths:
           description: Role created
   /roles/{id}:
     get:
-      tags:
-        - roles
       summary: Get a role by ID
       parameters:
         - in: path
@@ -245,8 +209,6 @@ paths:
           schema:
             $ref: '#/definitions/Role'
     put:
-      tags:
-        - roles
       summary: Update a role by ID
       parameters:
         - in: path
@@ -262,8 +224,6 @@ paths:
         '200':
           description: Role updated
     delete:
-      tags:
-        - roles
       summary: Delete a role by ID
       parameters:
         - in: path
@@ -276,8 +236,6 @@ paths:
           description: Role deleted
   /permissions:
     get:
-      tags:
-        - permissions
       summary: Get all permissions
       responses:
         '200':
@@ -287,8 +245,6 @@ paths:
             items:
               $ref: '#/definitions/Permission'
     post:
-      tags:
-        - permissions
       summary: Create a new permission
       parameters:
         - in: body
@@ -300,8 +256,6 @@ paths:
           description: Permission created
   /permissions/{id}:
     get:
-      tags:
-        - permissions
       summary: Get a permission by ID
       parameters:
         - in: path
@@ -314,8 +268,6 @@ paths:
           schema:
             $ref: '#/definitions/Permission'
     put:
-      tags:
-        - permissions
       summary: Update a permission by ID
       parameters:
         - in: path
@@ -330,8 +282,6 @@ paths:
         '200':
           description: Permission updated
     delete:
-      tags:
-        - permissions
       summary: Delete a permission by ID
       parameters:
         - in: path
@@ -343,8 +293,6 @@ paths:
           description: Permission deleted
   /secrets:
     get:
-      tags:
-        - secrets
       summary: Get all secrets
       responses:
         '200':
@@ -354,8 +302,6 @@ paths:
             items:
               $ref: '#/definitions/Secret'
     post:
-      tags:
-        - secrets
       summary: Create a new secret
       parameters:
         - in: body
@@ -367,8 +313,6 @@ paths:
           description: Secret created
   /secrets/{id}:
     get:
-      tags:
-        - secrets
       summary: Get a secret by ID
       parameters:
         - in: path
@@ -381,8 +325,6 @@ paths:
           schema:
             $ref: '#/definitions/Secret'
     put:
-      tags:
-        - secrets
       summary: Update a secret by ID
       parameters:
         - in: path
@@ -397,8 +339,6 @@ paths:
         '200':
           description: Secret updated
     delete:
-      tags:
-        - secrets
       summary: Delete a secret by ID
       parameters:
         - in: path
@@ -410,8 +350,6 @@ paths:
           description: Secret deleted
   /vaults:
     get:
-      tags:
-        - vaults
       summary: Get all vaults
       responses:
         '200':
@@ -421,8 +359,6 @@ paths:
             items:
               $ref: '#/definitions/Vault'
     post:
-      tags:
-        - vaults
       summary: Create a new vault
       parameters:
         - in: body
@@ -434,8 +370,6 @@ paths:
           description: Vault created
   /vaults/{id}:
     get:
-      tags:
-        - vaults
       summary: Get a vault by ID
       parameters:
         - in: path
@@ -448,8 +382,6 @@ paths:
           schema:
             $ref: '#/definitions/Vault'
     put:
-      tags:
-        - vaults
       summary: Update a vault by ID
       parameters:
         - in: path
@@ -464,8 +396,6 @@ paths:
         '200':
           description: Vault updated
     delete:
-      tags:
-        - vaults
       summary: Delete a vault by ID
       parameters:
         - in: path
