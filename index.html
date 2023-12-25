@@ -4,43 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>g-authy.github.io - Secure Your Secrets</title>
+    <title>G-authy - Secure Your Secrets</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
+        /* Add your existing styles here */
+
+        /* New styles */
+        .container {
+            display: flex;
+            justify-content: space-between;
         }
-        .issues-form {
-            width: 80%;
-            margin: 0 auto;
+        .nav, .content, .twitter {
+            flex: 1;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
-        .issues-form h2 {
+        .nav {
+            order: 1;
+        }
+        .content {
+            order: 2;
+        }
+        .twitter {
+            order: 3;
+        }
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .nav ul li a {
+            text-decoration: none;
             color: #333;
-        }
-        .issues-form label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .issues-form input[type="text"], .issues-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-        }
-        .issues-form .submit-btn {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        .issues-form .submit-btn:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
@@ -49,50 +41,82 @@
         <h1>G-authy - Secure Your Secrets</h1>
     </header>
 
-    <section>
-        <h2>Features</h2>
-        <ul>
-            <li>Multi-tenant support</li>
-            <li>Username/password and SSO login</li>
-            <li>RBAC on secrets and vaults</li>
-            <li>Support for various secret types</li>
-            <li>RESTful API with Swagger documentation</li>
-        </ul>
-    </section>
+    <div class="container">
+        <nav class="nav">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#releases">Releases</a></li>
+                <li><a href="#wiki">Wiki</a></li>
+                <li><a href="#swagger">Swagger</a></li>
+                <li><a href="#issues">Submit an Issue</a></li>
+            </ul>
+        </nav>
 
-    <section>
-        <h2>Releases</h2>
-        <ul>
-            <li><a href="https://github.com/G-authy/g-authy.github.io/releases/tag/v1.0.0">Version 1.0.0</a></li>
-            <!-- Add more release links as needed -->
-        </ul>
-    </section>
+        <main class="content">
+            <!-- Your existing content goes here -->
+            <section>
+                <h2>Features</h2>
+                <ul>
+                    <li>Multi-tenant support</li>
+                    <li>Username/password and SSO login</li>
+                    <li>RBAC on secrets and vaults</li>
+                    <li>Support for various secret types</li>
+                    <li>RESTful API with Swagger documentation</li>
+                </ul>
+            </section>
+        
+            <section>
+                <h2>Releases</h2>
+                <ul>
+                    <li><a href="https://github.com/G-authy/g-authy.github.io/releases/tag/v1.0.0">Version 1.0.0</a></li>
+                    <!-- Add more release links as needed -->
+                </ul>
+            </section>
+        
+            <section>
+                <h2>Wiki</h2>
+                <p>Explore our <a href="https://github.com/G-authy/g-authy.github.io/wiki">wiki</a> for documentation and guides.</p>
+        
+            </section>
+        
+            <section>
+                <h2>Swagger</h2>
+                <p>Explore our <a href="https://g-authy.github.io/g-authy/swagger-ui/dist/#/">Swagger</a> for documentation and guides.</p>
+        
+            </section>
+        
+        
+            <section class="issues-form">
+                <h2>Submit an Issue</h2>
+                <form action="https://github.com/G-authy/g-authy.github.io/issues/new" method="get">
+                    <label for="issue-title">Issue Title:</label>
+                    <input type="text" id="issue-title" name="title" required>
+        
+                    <label for="issue-body">Issue Description:</label>
+                    <textarea id="issue-body" name="body" required></textarea>
+        
+                    <input type="submit" class="submit-btn" value="Submit Issue">
+                </form>
+            </section>
+        
+            <section class="donate">
+               <!-- <h2>Donate via Cryptocurrency</h2>
+                <p>Your support helps us maintain and improve g-authy.github.io. We appreciate your contribution!</p>
+                <div class="crypto-address">
+                    <p>Bitcoin (BTC) Address:</p>
+                    <p>1ABCdefGHIJKLMNopqrsTUVWxyz</p>
+                </div> -->
+            </section>
+        </main>
 
-    <section>
-        <h2>Wiki</h2>
-        <p>Explore our <a href="https://github.com/G-authy/g-authy.github.io/wiki">wiki</a> for documentation and guides.</p>
-    </section>
+        <aside class="twitter">
+            <h2>Twitter</h2>
+            <a class="twitter-timeline" href="https://twitter.com/your_twitter_handle?ref_src=twsrc%5Etfw">Tweets by your_twitter_handle</a> 
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </aside>
+    </div>
 
-    <section class="issues-form">
-        <h2>Submit an Issue</h2>
-        <form action="https://github.com/G-authy/g-authy.github.io/issues/new" method="get">
-            <label for="issue-title">Issue Title:</label>
-            <input type="text" id="issue-title" name="title" required>
-
-            <label for="issue-body">Issue Description:</label>
-            <textarea id="issue-body" name="body" required></textarea>
-
-            <input type="submit" class="submit-btn" value="Submit Issue">
-        </form>
-    </section>
-
-    <section class="donate">
-       <!-- <h2>Donate via Cryptocurrency</h2>
-        <p>Your support helps us maintain and improve g-authy.github.io. We appreciate your contribution!</p>
-        <div class="crypto-address">
-            <p>Bitcoin (BTC) Address:</p>
-            <p>1ABCdefGHIJKLMNopqrsTUVWxyz</p>
-        </div> -->
-    </section>
+    <!-- Rest of your HTML -->
 </body>
 </html>
