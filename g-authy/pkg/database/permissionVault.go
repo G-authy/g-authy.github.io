@@ -3,7 +3,7 @@ package database
 import "github.com/google/uuid"
 
 // Permission represents the permission information.
-type Permission struct {
+type PermissionVault struct {
 	DefaultModel
 	UserID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
 	User       User      `gorm:"foreignkey:UserID" json:"-"`

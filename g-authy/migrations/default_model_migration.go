@@ -83,8 +83,8 @@ type Role struct {
 	RoleName string `gorm:"not null"`
 }
 
-// Permission represents the Permissions table
-type Permission struct {
+// PermissionVault represents the PermissionVault table
+type PermissionVault struct {
 	DefaultModel
 	UserID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
 	User       User      `gorm:"foreignkey:UserID" json:"-"`
@@ -94,6 +94,18 @@ type Permission struct {
 	Role       Role      `gorm:"foreignkey:RoleID" json:"-"`
 	VaultID    uuid.UUID `gorm:"type:uuid;" json:"-"`
 	Vault      Vault     `gorm:"foreignkey:VaultID" json:"-"`
+	Permission string    `gorm:"not null" json:"permission"`
+}
+
+// PermissionSecrets represents the PermissionsSecrets table
+type PermissionSecret struct {
+	DefaultModel
+	UserID     uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	User       User      `gorm:"foreignkey:UserID" json:"-"`
+	GroupID    uuid.UUID `gorm:"type:uuid;not null" json:"-"`
+	Group      Group     `gorm:"foreignkey:GroupID" json:"-"`
+	RoleID     int       `gorm:"type:int;not null" json:"-"`
+	Role       Role      `gorm:"foreignkey:RoleID" json:"-"`
 	SecretID   uuid.UUID `gorm:"type:uuid;" json:"-"`
 	Secret     Secret    `gorm:"foreignkey:SecretID" json:"-"`
 	Permission string    `gorm:"not null" json:"permission"`
