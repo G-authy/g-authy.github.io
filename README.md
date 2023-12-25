@@ -16,10 +16,10 @@ type Secret struct {
 ## The API hEndpoints
 The API has the following endpoints:
 
-* GET /secrets: Get all secrets.
-* POST /secrets: Create a new secret.
-* PUT /secrets/{id}: Update a secret.
-* DELETE /secrets/{id}: Delete a secret.
+* ```GET /secrets```: Get all secrets.
+* ```POST /secrets```: Create a new secret.
+* ```PUT /secrets/{id}```: Update a secret.
+* ```DELETE /secrets/{id}```: Delete a secret.
 
 ## Running the Project
 To run the project, use the following command ```go run secrets.go ```
